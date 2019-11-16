@@ -1,5 +1,5 @@
 export interface Tale {
     author: String,
-    description: String,
-    summary: String
+    name: String,
+    part: Number
 }
