@@ -8,4 +8,4 @@ export const TaleSchema = new mongoose.Schema({
     tags: [String],
     animal: String,
     animalName: String
-});
+}, { collection: 'wildtales' });
