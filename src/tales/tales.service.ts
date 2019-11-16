@@ -1,20 +1,22 @@
-import {Model} from 'mongoose';
-import {Injectable} from '@nestjs/common';
-import {InjectModel} from '@nestjs/mongoose';
-import {CreateTaleDto} from "./tale.dto";
-import {Tale} from "./tale.interface";
+import { Injectable } from '@nestjs/common';
+import { Tales } from '../database/entities/tales.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, getRepository } from 'typeorm';
+
+export type Tales = Tales;
 
 @Injectable()
 export class TalesService {
-    constructor(@InjectModel('Tale') private readonly taleModel: Model<Tale>) {
-    }
+  constructor(
+    @InjectRepository(Tales)
+    private readonly talesRepository: Repository<Tales>,
+  ) {}
 
-    async create(createTaleDto: CreateTaleDto): Promise<Tale> {
-        const createdCat = new this.taleModel(createTaleDto);
-        return await createdCat.save();
-    }
+  async find(where: {}): Promise<Tales | undefined> {
+    return this.talesRepository.findOne({ where: { where } });
+  }
 
-    async findAll(): Promise<Tale[]> {
-        return await this.taleModel.find().exec();
-    }
+  async findAll(): Promise<Tales[] | undefined> {
+    return this.talesRepository.find();
+  }
 }

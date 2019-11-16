@@ -1,22 +1,24 @@
-import {Body, Controller, Get, Post, Req, Request} from "@nestjs/common";
-import {TalesService} from "./tales.service";
-import {CreateTaleDto} from "./tale.dto";
-import {Tale} from "./tale.interface";
+import {
+  Controller,
+  UseGuards,
+  Post,
+  Body,
+  Get,
+  Request,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
+import { TalesDto } from './tales.dto';
+import { TalesService } from './tales.service';
 
-@Controller('tales')
+@Controller()
 export class TalesController {
-    constructor(private readonly talesService: TalesService) {
-    }
+  constructor(
+    private readonly talesService: TalesService,
+  ) {}
 
-    @Get()
-    findAll(): Promise<Tale[]> {
-        return this.talesService.findAll();
-    }
-
-    @Post()
-    async create(@Body() createTaleDto: CreateTaleDto) {
-        await this.talesService.create(createTaleDto);
-    }
-
+  @Get('/tales')
+  async getTales(@Request() req) {
+    return (await this.talesService.findAll());
+  }
 }
-

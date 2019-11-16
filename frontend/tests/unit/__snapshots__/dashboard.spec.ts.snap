@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard.vue renders dashboard component 1`] = `
+<div>
+  <p>
+    dashboard
+  </p>
+</div>
+`;

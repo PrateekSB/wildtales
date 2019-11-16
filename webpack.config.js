@@ -12,5 +12,5 @@ module.exports = function(options) {
       }),
     ],
     plugins: [...options.plugins, new webpack.HotModuleReplacementPlugin()],
-  }
-}
+  };
+};
