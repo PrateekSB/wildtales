@@ -1,7 +1,7 @@
 import {Body, Controller, Get, Post, Req, Request} from "@nestjs/common";
 import {TalesService} from "./tales.service";
-import {Tale} from "./Tale";
 import {CreateTaleDto} from "./tale.dto";
+import {Tale} from "./tale.interface";
 
 @Controller('tales')
 export class TalesController {
