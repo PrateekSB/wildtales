@@ -6,7 +6,7 @@ import {TalesModule} from "./tales/tales.module";
 
 @Module({
     imports: [
-        MongooseModule.forRoot('mongodb+srv://vienna_001:U65zzmUeutDP2zF@zoockathon0-e3coy.gcp.mongodb.net/wildtales?retryWrites=true&w=majority'),
+        MongooseModule.forRoot('mongodb://vienna_1:U65zzmUeutDP2zF@ds053978.mlab.com:53978/heroku_40m67v44'),
         TalesModule
     ],
     controllers: [AppController],
